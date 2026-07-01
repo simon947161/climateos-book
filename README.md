@@ -1,2 +1,15 @@
-# climateos-book
-ClimateOS 官方 Living Book 仓库。 一个多语言开放知识项目，连接环境认知、验证科学、AI Agent 与地球系统治理。The official Living Book repository for ClimateOS. A multilingual open knowledge project connecting environmental cognition, validation science, AI agents and Earth system governance.
+# ClimateOS Living Books
+
+This repository hosts the official Living Books of ClimateOS.
+
+Current publication:
+
+- **Torch and Horizon / 远方与火炬**
+
+Purpose:
+
+- Make ClimateOS knowledge readable by humans and AI systems.
+- Support multilingual public reading.
+- Provide a future foundation for ClimateOS documentation, white papers and interactive knowledge portals.
+
+Author: Simon Shu Min
