@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { MathJaxRefresh } from "@/components/MathJaxRefresh";
 
 type MarkdownDocumentProps = {
   content: string;
@@ -10,6 +11,7 @@ export function MarkdownDocument({ content }: MarkdownDocumentProps) {
   return (
     <article className="markdown-document">
       {blocks.map((block, index) => renderBlock(block.trim(), index))}
+      <MathJaxRefresh />
     </article>
   );
 }
@@ -19,9 +21,13 @@ function renderBlock(block: string, index: number) {
     return null;
   }
 
+  if (isPublicationArtifact(block)) {
+    return null;
+  }
+
   if (block.startsWith("$$") && block.endsWith("$$")) {
     return (
-      <div className="math-block" key={index}>
+      <div className="math-block" data-mathjax key={index}>
         {block}
       </div>
     );
@@ -87,7 +93,7 @@ function renderBlock(block: string, index: number) {
   }
 
   if (lines.every((line) => line.trim() === "---")) {
-    return <hr key={index} />;
+    return null;
   }
 
   return (
@@ -104,6 +110,17 @@ function renderBlock(block: string, index: number) {
 
 function stripFrontMatter(value: string) {
   return value.replace(/^---\n[\s\S]*?\n---\n?/, "");
+}
+
+function isPublicationArtifact(value: string) {
+  const trimmed = value.trim();
+
+  return (
+    /^<!--\s*Page\s+\d+\s*-->$/i.test(trimmed) ||
+    /^!page\s*\d*$/i.test(trimmed) ||
+    /^!Page\s*\d*$/i.test(trimmed) ||
+    /^!\[\]\[image\d+\]$/i.test(trimmed)
+  );
 }
 
 function cleanHeadingText(value: string) {
