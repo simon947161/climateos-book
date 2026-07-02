@@ -22,9 +22,11 @@ console.log("Google Translate scaffold for ClimateOS Living Books");
 console.log("Dry run:", execute ? "NO" : "YES");
 console.log("Target locale:", targetLocale);
 console.log("Source files:", files.length);
+console.log("Required output status: machine-draft");
 
 if (!execute) {
-  console.log("No translation API call was made. Add --execute only after review and with GOOGLE_TRANSLATE_API_KEY set.");
+  console.log("No translation API call was made.");
+  console.log("Add --execute only after explicit user authorization and with GOOGLE_TRANSLATE_API_KEY set in the environment.");
   process.exit(0);
 }
 
@@ -42,6 +44,8 @@ for (const fileName of files) {
 
   console.log(`Would translate ${fileName} -> ${outputPath}`);
   console.log(`Source characters: ${Array.from(source).length}`);
+  console.log("Output must include machine-draft metadata before publication review.");
 }
 
 console.log("This scaffold preserves Markdown filenames and output paths, but does not include a live API client yet.");
+console.log("Do not mark generated output as human-reviewed without separate review evidence.");

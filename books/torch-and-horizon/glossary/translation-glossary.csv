@@ -1,0 +1,10 @@
+source_term,zh,en,es,fr,de,ar,notes,status
+ClimateOS,ClimateOS,ClimateOS,ClimateOS,ClimateOS,ClimateOS,ClimateOS,Keep product/system name unchanged,reviewed
+Living Book,Living Book,Living Book,Libro vivo,Livre vivant,Living Book,كتاب حي,Use consistently for publication format,machine-draft
+Torch and Horizon,远方与火炬,Torch and Horizon,Antorcha y horizonte,Torche et horizon,Fackel und Horizont,الشعلة والأفق,Book title translations require human review,machine-draft
+validation science,验证科学,validation science,ciencia de validación,science de la validation,Validierungswissenschaft,علم التحقق,Core ClimateOS concept,machine-draft
+environmental cognition,环境认知,environmental cognition,cognición ambiental,cognition environnementale,Umweltkognition,الإدراك البيئي,Core ClimateOS concept,machine-draft
+possibility computing,可能性计算,possibility computing,computación de posibilidades,calcul des possibles,Möglichkeitsberechnung,حوسبة الإمكانات,Core ClimateOS concept,machine-draft
+human-in-the-loop intelligence,人在回路中的智能,human-in-the-loop intelligence,inteligencia con humanos en el circuito,intelligence avec humain dans la boucle,Human-in-the-loop-Intelligenz,ذكاء الإنسان في الحلقة,Governance and review concept,machine-draft
+machine-draft,机器草稿,machine-draft,borrador automático,brouillon automatique,maschineller Entwurf,مسودة آلية,Required label for generated translations,reviewed
+human-reviewed,人工审校,human-reviewed,revisado por humanos,révisé par un humain,menschlich geprüft,مراجع بشريا,Must not be used without review evidence,reviewed
