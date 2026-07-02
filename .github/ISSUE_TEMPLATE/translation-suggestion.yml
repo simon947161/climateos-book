@@ -1,0 +1,35 @@
+name: Translation suggestion
+description: Suggest a translation improvement for a ClimateOS Living Book page.
+title: "[Translation]: "
+labels: ["translation", "living-book"]
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      description: Which language is this suggestion for?
+      placeholder: "en, es, fr, de, ar, zh"
+    validations:
+      required: true
+  - type: input
+    id: chapter_or_page_url
+    attributes:
+      label: Chapter or page URL
+      description: Link to the relevant chapter or page.
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion / feedback
+      description: Share the translation suggestion, issue, or proposed wording.
+    validations:
+      required: true
+  - type: input
+    id: contributor_name
+    attributes:
+      label: Contributor name optional
+  - type: input
+    id: country_region
+    attributes:
+      label: Country / region optional

@@ -1,0 +1,27 @@
+{
+  "zh": {
+    "status": "original",
+    "chapters": 27
+  },
+  "en": {
+    "status": "pending",
+    "chapters": 0
+  },
+  "es": {
+    "status": "pending",
+    "chapters": 0
+  },
+  "fr": {
+    "status": "pending",
+    "chapters": 0
+  },
+  "de": {
+    "status": "pending",
+    "chapters": 0
+  },
+  "ar": {
+    "status": "pending",
+    "chapters": 0,
+    "dir": "rtl"
+  }
+}

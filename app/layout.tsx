@@ -21,6 +21,7 @@ export default function RootLayout({
           </Link>
           <nav aria-label="Primary navigation">
             <Link href="/books/torch-and-horizon">Torch and Horizon</Link>
+            <Link href="/contribute">Contribute</Link>
             <Link href="/about-climateos">About</Link>
             <Link href="/feedback">Feedback</Link>
           </nav>

@@ -1,0 +1,34 @@
+name: Collaboration request
+description: Start a collaboration conversation around ClimateOS Living Books.
+title: "[Collaboration]: "
+labels: ["collaboration", "living-book"]
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: "zh, en, es, fr, de, ar"
+    validations:
+      required: true
+  - type: input
+    id: chapter_or_page_url
+    attributes:
+      label: Chapter or page URL
+      description: Link to the related page if any.
+    validations:
+      required: false
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Suggestion / feedback
+      description: Describe the collaboration request, institution, topic, or proposed next step.
+    validations:
+      required: true
+  - type: input
+    id: contributor_name
+    attributes:
+      label: Contributor name optional
+  - type: input
+    id: country_region
+    attributes:
+      label: Country / region optional

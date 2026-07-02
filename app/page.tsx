@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
 export default function HomePage() {
   return (
@@ -10,24 +11,29 @@ export default function HomePage() {
           A public reading home for ClimateOS knowledge, reflection, evidence systems, and long-term
           environmental governance thinking.
         </p>
+        <p>
+          ClimateOS Living Books is opening multilingual pathways for readers, translators,
+          researchers and collaborators.
+        </p>
         <div className="button-row">
           <Link className="primary-link" href="/books/torch-and-horizon">
             Read Torch and Horizon
           </Link>
-          <Link className="secondary-link" href="/about-climateos">
-            About ClimateOS
+          <Link className="secondary-link" href="/contribute">
+            Contribute
           </Link>
         </div>
+        <LanguageSwitcher />
       </section>
 
       <section className="content-section">
         <h2>Current publication</h2>
         <article className="book-card">
-          <p className="eyebrow">Living Book v0.1</p>
+          <p className="eyebrow">Living Book v0.2</p>
           <h3>Torch and Horizon / 远方与火炬</h3>
           <p>
-            A ClimateOS Reflection Series book on environmental cognition, validation science,
-            possibility computing, and the future of civilization.
+            The Chinese original is online. English, Spanish, French, German and Arabic are open as
+            pending translation pathways, not completed translations.
           </p>
           <Link href="/books/torch-and-horizon">Open book page</Link>
         </article>

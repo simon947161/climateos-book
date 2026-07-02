@@ -1,0 +1,33 @@
+name: Chapter feedback
+description: Share feedback on a specific chapter or page.
+title: "[Chapter feedback]: "
+labels: ["chapter-feedback", "living-book"]
+body:
+  - type: input
+    id: language
+    attributes:
+      label: Language
+      placeholder: "zh, en, es, fr, de, ar"
+    validations:
+      required: true
+  - type: input
+    id: chapter_or_page_url
+    attributes:
+      label: Chapter or page URL
+    validations:
+      required: true
+  - type: textarea
+    id: feedback
+    attributes:
+      label: Suggestion / feedback
+      description: Share comments, typos, layout issues, terminology notes, or reading feedback.
+    validations:
+      required: true
+  - type: input
+    id: contributor_name
+    attributes:
+      label: Contributor name optional
+  - type: input
+    id: country_region
+    attributes:
+      label: Country / region optional

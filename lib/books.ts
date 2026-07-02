@@ -1,5 +1,6 @@
 import fs from "node:fs";
 import path from "node:path";
+import type { LocaleCode } from "@/lib/locales";
 
 export type Chapter = {
   slug: string;
@@ -25,6 +26,10 @@ export function getChineseChapterDirectory() {
   return chineseDirectory;
 }
 
+export function getBookLocaleDirectory(locale: LocaleCode) {
+  return path.join(torchAndHorizonDirectory, locale);
+}
+
 export function hasTorchAndHorizonPdf() {
   return fs.existsSync(pdfPath);
 }
@@ -34,16 +39,22 @@ export function getTorchAndHorizonPdfPath() {
 }
 
 export function getChineseChapters(): Chapter[] {
-  if (!fs.existsSync(chineseDirectory)) {
+  return getChaptersForLocale("zh");
+}
+
+export function getChaptersForLocale(locale: LocaleCode): Chapter[] {
+  const localeDirectory = getBookLocaleDirectory(locale);
+
+  if (!fs.existsSync(localeDirectory)) {
     return [];
   }
 
   return fs
-    .readdirSync(chineseDirectory)
+    .readdirSync(localeDirectory)
     .filter((fileName) => fileName.endsWith(".md") && fileName !== "README.md")
     .sort((a, b) => a.localeCompare(b, "en"))
     .map((fileName) => {
-      const content = fs.readFileSync(path.join(chineseDirectory, fileName), "utf8");
+      const content = fs.readFileSync(path.join(localeDirectory, fileName), "utf8");
       return {
         slug: fileName.replace(/\.md$/, ""),
         fileName,
@@ -54,11 +65,19 @@ export function getChineseChapters(): Chapter[] {
 }
 
 export function getChineseChapter(slug: string) {
-  return getChineseChapters().find((chapter) => chapter.slug === slug);
+  return getChapterForLocale("zh", slug);
+}
+
+export function getChapterForLocale(locale: LocaleCode, slug: string) {
+  return getChaptersForLocale(locale).find((chapter) => chapter.slug === slug);
 }
 
 export function getAdjacentChineseChapters(slug: string) {
-  const chapters = getChineseChapters();
+  return getAdjacentChaptersForLocale("zh", slug);
+}
+
+export function getAdjacentChaptersForLocale(locale: LocaleCode, slug: string) {
+  const chapters = getChaptersForLocale(locale);
   const index = chapters.findIndex((chapter) => chapter.slug === slug);
 
   return {
