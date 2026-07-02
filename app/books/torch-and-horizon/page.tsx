@@ -1,9 +1,10 @@
 import Link from "next/link";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { getChineseChapters, hasTorchAndHorizonPdf } from "@/lib/books";
+import { getChaptersForLocale, getChineseChapters, hasTorchAndHorizonPdf } from "@/lib/books";
 
 export default function TorchAndHorizonPage() {
-  const chapters = getChineseChapters();
+  const chineseChapters = getChineseChapters();
+  const englishChapters = getChaptersForLocale("en");
   const hasPdf = hasTorchAndHorizonPdf();
 
   return (
@@ -13,12 +14,15 @@ export default function TorchAndHorizonPage() {
         <h1>Torch and Horizon / 远方与火炬</h1>
         <p className="lead">
           A public thought book for ClimateOS readers, preserving the original Chinese source text
-          while opening careful multilingual publication pathways.
+          while opening a parallel English publication edition.
         </p>
 
         <div className="action-list">
           <Link className="primary-link" href="/books/torch-and-horizon/zh">
             中文原文目录
+          </Link>
+          <Link className="secondary-link" href="/books/torch-and-horizon/en">
+            English publication edition
           </Link>
           {hasPdf ? (
             <Link className="secondary-link" href="/books/torch-and-horizon/pdf">
@@ -36,16 +40,17 @@ export default function TorchAndHorizonPage() {
         <div>
           <h2>Chinese original</h2>
           <p>
-            {chapters.length > 0
-              ? `${chapters.length} Markdown chapters are available as the original edition.`
+            {chineseChapters.length > 0
+              ? `${chineseChapters.length} Markdown chapters are available as the original edition.`
               : "章节内容待添加。"}
           </p>
         </div>
         <div>
-          <h2>Multilingual editions</h2>
+          <h2>English publication edition</h2>
           <p>
-            English, Spanish, French, German and Arabic editions are pending. Placeholder pages are
-            visible for coordination, but they are not completed translations.
+            {englishChapters.length > 0
+              ? `${englishChapters.length} English reading sections are available from the canonical publication manuscript.`
+              : "English publication content is not available yet."}
           </p>
         </div>
       </section>

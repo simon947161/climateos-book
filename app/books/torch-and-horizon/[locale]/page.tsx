@@ -37,6 +37,7 @@ export default async function LocaleTableOfContentsPage({ params }: LocalePagePr
   const chapters = getChaptersForLocale(typedLocale);
   const chineseChapters = getChineseChapters();
   const isOriginal = locale.status === "original";
+  const isPending = locale.status === "pending" || locale.status === "machine-draft";
 
   return (
     <div className="page-shell" dir={locale.dir}>
@@ -47,9 +48,11 @@ export default async function LocaleTableOfContentsPage({ params }: LocalePagePr
         <p className="lead">
           {isOriginal
             ? "This is the original Chinese edition generated from Markdown source files."
-            : "Translation in progress. This language is open for contribution and does not yet contain completed translated chapters."}
+            : isPending
+              ? "Translation in progress. This language is open for contribution and does not yet contain completed translated chapters."
+              : "This publication edition is generated from the canonical English Markdown manuscript."}
         </p>
-        {!isOriginal ? (
+        {isPending ? (
           <p>
             <Link href="/books/torch-and-horizon/zh">Return to the Chinese original</Link>
           </p>

@@ -37,7 +37,7 @@ Primary routes:
 Supported locales:
 
 - `zh` - 中文 - original - complete
-- `en` - English - pending
+- `en` - English - Publication Edition v1.0 - available
 - `es` - Español - pending
 - `fr` - Français - pending
 - `de` - Deutsch - pending
@@ -46,7 +46,8 @@ Supported locales:
 Source and translation paths:
 
 - Chinese original: `books/torch-and-horizon/zh/`
-- English placeholder: `books/torch-and-horizon/en/`
+- English publication edition: `books/torch-and-horizon/en/`
+- English canonical source: `books/torch-and-horizon/en/source/The_Torch_and_the_Horizon_Publication_Edition_v1.0.md`
 - Spanish placeholder: `books/torch-and-horizon/es/`
 - French placeholder: `books/torch-and-horizon/fr/`
 - German placeholder: `books/torch-and-horizon/de/`
@@ -54,11 +55,23 @@ Source and translation paths:
 - Translation registry: `books/torch-and-horizon/translation-status.json`
 - PDF source: `books/torch-and-horizon/pdf/torch-and-horizon-v1.pdf`
 
-The website reads Chinese Markdown chapters from the source folder. It does not rewrite or summarize the original book text. Pending language pages are clearly marked as translation-in-progress placeholders and should not be treated as completed translations.
+The website reads Markdown chapters from the source folders. It does not rewrite or summarize the original book text or the English publication manuscript. Pending language pages are clearly marked as translation-in-progress placeholders and should not be treated as completed translations.
+
+## English Publication Edition
+
+The English edition is generated from the canonical manuscript:
+
+- `books/torch-and-horizon/en/source/The_Torch_and_the_Horizon_Publication_Edition_v1.0.md`
+
+The website presents the manuscript as chapter-by-chapter Markdown reading pages, with table of contents navigation, previous/next chapter navigation, publication images, and MathJax rendering for formulas.
+
+Publication images are stored under:
+
+- `public/assets/torch-and-horizon/en/`
 
 ## Reader Contribution
 
-Reader interaction uses GitHub Issues for v0.2:
+Reader interaction uses GitHub Issues:
 
 - General feedback: `/feedback`
 - Translation and collaboration entry: `/contribute`

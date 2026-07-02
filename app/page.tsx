@@ -19,6 +19,9 @@ export default function HomePage() {
           <Link className="primary-link" href="/books/torch-and-horizon">
             Read Torch and Horizon
           </Link>
+          <Link className="secondary-link" href="/books/torch-and-horizon/en">
+            English edition
+          </Link>
           <Link className="secondary-link" href="/contribute">
             Contribute
           </Link>
@@ -29,11 +32,12 @@ export default function HomePage() {
       <section className="content-section">
         <h2>Current publication</h2>
         <article className="book-card">
-          <p className="eyebrow">Living Book v0.2</p>
+          <p className="eyebrow">Living Book v0.3</p>
           <h3>Torch and Horizon / 远方与火炬</h3>
           <p>
-            The Chinese original is online. English, Spanish, French, German and Arabic are open as
-            pending translation pathways, not completed translations.
+            The Chinese original remains online, and the English Publication Edition v1.0 is now
+            available as a parallel reading path. Spanish, French, German and Arabic remain pending
+            translation pathways.
           </p>
           <Link href="/books/torch-and-horizon">Open book page</Link>
         </article>

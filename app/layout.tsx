@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Script from "next/script";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,6 +16,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Script id="mathjax-config" strategy="beforeInteractive">
+          {`
+            window.MathJax = {
+              tex: {
+                inlineMath: [['$', '$'], ['\\\\(', '\\\\)']],
+                displayMath: [['$$', '$$'], ['\\\\[', '\\\\]']]
+              },
+              svg: { fontCache: 'global' }
+            };
+          `}
+        </Script>
+        <Script
+          id="mathjax"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"
+          strategy="afterInteractive"
+        />
         <header className="site-header">
           <Link className="brand" href="/">
             ClimateOS Living Books

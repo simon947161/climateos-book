@@ -4,8 +4,9 @@
     "chapters": 27
   },
   "en": {
-    "status": "pending",
-    "chapters": 0
+    "status": "reviewed",
+    "chapters": 21,
+    "source": "books/torch-and-horizon/en/source/The_Torch_and_the_Horizon_Publication_Edition_v1.0.md"
   },
   "es": {
     "status": "pending",

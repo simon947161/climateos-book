@@ -90,10 +90,10 @@ function extractTitle(content: string, fileName: string) {
   const heading = content
     .split(/\r?\n/)
     .map((line) => line.trim())
-    .find((line) => line.startsWith("# "));
+    .find((line) => /^#{1,3}\s+/.test(line));
 
   if (heading) {
-    return heading.replace(/^#\s+/, "").trim();
+    return heading.replace(/^#{1,3}\s+/, "").replace(/^\*(.+)\*$/, "$1").trim();
   }
 
   return fileName

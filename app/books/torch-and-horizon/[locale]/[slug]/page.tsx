@@ -7,6 +7,7 @@ import {
   getChapterForLocale,
   getChineseChapter,
   getChineseChapters,
+  getChaptersForLocale,
 } from "@/lib/books";
 import { getLocale, getLocaleStatusLabel, locales, type LocaleCode } from "@/lib/locales";
 
@@ -20,12 +21,15 @@ type ChapterPageProps = {
 export function generateStaticParams() {
   const chineseSlugs = getChineseChapters().map((chapter) => chapter.slug);
 
-  return locales.flatMap((locale) =>
-    chineseSlugs.map((slug) => ({
+  return locales.flatMap((locale) => {
+    const localeSlugs = getChaptersForLocale(locale.code).map((chapter) => chapter.slug);
+    const slugs = localeSlugs.length > 0 ? localeSlugs : chineseSlugs;
+
+    return slugs.map((slug) => ({
       locale: locale.code,
       slug,
-    })),
-  );
+    }));
+  });
 }
 
 export async function generateMetadata({ params }: ChapterPageProps) {
@@ -62,7 +66,8 @@ export default async function MultilingualChapterPage({ params }: ChapterPagePro
     translatedChapter ? typedLocale : "zh",
     visibleChapter.slug,
   );
-  const isOriginal = locale.status === "original";
+  const isPending = locale.status === "pending" || locale.status === "machine-draft";
+  const isShowingFallback = !translatedChapter && typedLocale !== "zh";
 
   return (
     <div className="reader-shell" dir={locale.dir}>
@@ -74,7 +79,7 @@ export default async function MultilingualChapterPage({ params }: ChapterPagePro
 
       <section className={locale.dir === "rtl" ? "rtl-reading" : ""}>
         <p className="status-pill">Translation status: {getLocaleStatusLabel(locale.status)}</p>
-        {!isOriginal ? (
+        {isPending || isShowingFallback ? (
           <div className="pending-box">
             <h1>Translation in progress</h1>
             <p>
