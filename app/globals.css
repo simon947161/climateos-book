@@ -1,5 +1,5 @@
 :root {
-  --background: #fbfaf7;
+  --background: #FAFAF7;
   --surface: #ffffff;
   --text: #1f2523;
   --muted: #626b67;
@@ -85,7 +85,10 @@ code {
 }
 
 .reader-shell {
-  width: min(100%, 820px);
+  max-width: 760px;
+  width: min(100%, 760px);
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .hero-section,

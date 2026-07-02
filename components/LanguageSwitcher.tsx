@@ -21,7 +21,11 @@ export function LanguageSwitcher({ currentLocale, slug }: LanguageSwitcherProps)
             href={href}
             key={locale.code}
           >
-            <span>{locale.nativeLabel}</span>
+            <span>
+              {locale.code === currentLocale ? "✓ " : ""}
+              {locale.nativeLabel}
+              {locale.dir === "rtl" ? " · RTL" : ""}
+            </span>
             <small>
               {locale.status === "original" ? "Original" : getLocaleStatusLabel(locale.status)}
             </small>
