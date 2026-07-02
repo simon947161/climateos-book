@@ -1,0 +1,20 @@
+PDF Placeholder
+================
+
+To complete the website setup, place the PDF file at:
+
+  books/torch-and-horizon/pdf/torch-and-horizon-v1.pdf
+
+The PDF download link on the book landing page will automatically work once the file is in place.
+
+For development, you can:
+1. Add the actual PDF file
+2. Add a placeholder PDF for testing
+3. Comment out the download section in app/books/torch-and-horizon/page.tsx
+
+File size note: 
+- For Vercel deployment, ensure the PDF is under 100MB.
+- For Cloudflare Pages, ensure it's under 25MB.
+
+If the PDF exceeds these limits, consider hosting it externally (e.g., GitHub Releases) 
+and updating the download link in the book landing page.
