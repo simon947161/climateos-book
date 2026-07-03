@@ -34,28 +34,25 @@ Primary routes:
 
 ## Multilingual Structure
 
-Supported locales:
+Official editions:
 
-- `zh` - 中文 - original - complete
-- `en` - English - Publication Edition v1.0 - available
-- `es` - Español - pending
-- `fr` - Français - pending
-- `de` - Deutsch - pending
-- `ar` - العربية - pending - RTL
+- `zh` - Chinese Original - complete
+- `en` - English Publication Edition v1.0 - complete
+
+Other languages are not officially maintained in v1.0. Readers should use their
+browser's built-in translation feature for additional languages. Modern browsers
+such as Chrome, Edge, and Safari can translate the book while preserving the page
+layout.
 
 Source and translation paths:
 
 - Chinese original: `books/torch-and-horizon/zh/`
 - English publication edition: `books/torch-and-horizon/en/`
 - English canonical source: `books/torch-and-horizon/en/source/The_Torch_and_the_Horizon_Publication_Edition_v1.0.md`
-- Spanish placeholder: `books/torch-and-horizon/es/`
-- French placeholder: `books/torch-and-horizon/fr/`
-- German placeholder: `books/torch-and-horizon/de/`
-- Arabic placeholder: `books/torch-and-horizon/ar/`
 - Translation registry: `books/torch-and-horizon/translation-status.json`
 - PDF source: `books/torch-and-horizon/pdf/torch-and-horizon-v1.pdf`
 
-The website reads Markdown chapters from the source folders. It does not rewrite or summarize the original book text or the English publication manuscript. Pending language pages are clearly marked as translation-in-progress placeholders and should not be treated as completed translations.
+The website reads Markdown chapters from the source folders. It does not rewrite or summarize the original book text or the English publication manuscript. Additional language placeholders may exist in the repository for future work, but v1.0 officially publishes only Chinese and English.
 
 ## English Publication Edition
 

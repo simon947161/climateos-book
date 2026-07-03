@@ -1,5 +1,7 @@
 # 作者简介（About the Author）
 
+![作者眺望远方](/assets/torch-and-horizon/en/page-51-image-1.png)
+
 序言
 
 

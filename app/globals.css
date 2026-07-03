@@ -179,6 +179,12 @@ h3 {
   margin-top: 1.25rem;
 }
 
+.language-divider {
+  align-self: stretch;
+  border-left: 1px solid var(--line);
+  min-height: 2.75rem;
+}
+
 .language-switcher a,
 .contribution-card {
   display: grid;
@@ -192,6 +198,10 @@ h3 {
 .language-switcher a.active {
   border-color: var(--accent);
   background: #edf4f1;
+}
+
+.language-switcher a.language-other {
+  min-width: 10rem;
 }
 
 .language-switcher small,

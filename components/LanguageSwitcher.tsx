@@ -1,16 +1,25 @@
 import Link from "next/link";
 import { getChapterForLocale } from "@/lib/books";
-import { getLocaleStatusLabel, locales, type LocaleCode } from "@/lib/locales";
+import { type LocaleCode } from "@/lib/locales";
 
 type LanguageSwitcherProps = {
   currentLocale?: LocaleCode;
   slug?: string;
 };
 
+const officialEditions: Array<{
+  code: Extract<LocaleCode, "zh" | "en">;
+  label: string;
+  status: string;
+}> = [
+  { code: "zh", label: "Chinese", status: "Original" },
+  { code: "en", label: "English", status: "Publication Edition" },
+];
+
 export function LanguageSwitcher({ currentLocale, slug }: LanguageSwitcherProps) {
   return (
     <nav className="language-switcher" aria-label="Language switcher">
-      {locales.map((locale) => {
+      {officialEditions.map((locale) => {
         const hasMatchingChapter = slug ? getChapterForLocale(locale.code, slug) : null;
         const href =
           slug && hasMatchingChapter
@@ -26,15 +35,17 @@ export function LanguageSwitcher({ currentLocale, slug }: LanguageSwitcherProps)
           >
             <span>
               {locale.code === currentLocale ? "✓ " : ""}
-              {locale.nativeLabel}
-              {locale.dir === "rtl" ? " · RTL" : ""}
+              {locale.label}
             </span>
-            <small>
-              {locale.status === "original" ? "Original" : getLocaleStatusLabel(locale.status)}
-            </small>
+            <small>{locale.status}</small>
           </Link>
         );
       })}
+      <span className="language-divider" aria-hidden="true" />
+      <Link className="language-other" href="/books/torch-and-horizon/other-languages">
+        <span>Other Languages</span>
+        <small>Browser translation</small>
+      </Link>
     </nav>
   );
 }

@@ -51,15 +51,18 @@ function renderBlock(block: string, index: number) {
   }
 
   if (firstLine.startsWith("### ")) {
-    return <h3 key={index}>{cleanHeadingText(firstLine.replace(/^###\s+/, ""))}</h3>;
+    const heading = cleanHeadingText(firstLine.replace(/^###\s+/, ""));
+    return heading ? <h3 key={index}>{heading}</h3> : null;
   }
 
   if (firstLine.startsWith("## ")) {
-    return <h2 key={index}>{cleanHeadingText(firstLine.replace(/^##\s+/, ""))}</h2>;
+    const heading = cleanHeadingText(firstLine.replace(/^##\s+/, ""));
+    return heading ? <h2 key={index}>{heading}</h2> : null;
   }
 
   if (firstLine.startsWith("# ")) {
-    return <h1 key={index}>{cleanHeadingText(firstLine.replace(/^#\s+/, ""))}</h1>;
+    const heading = cleanHeadingText(firstLine.replace(/^#\s+/, ""));
+    return heading ? <h1 key={index}>{heading}</h1> : null;
   }
 
   if (lines.every((line) => line.trim().startsWith("- "))) {
@@ -119,7 +122,8 @@ function isPublicationArtifact(value: string) {
     /^<!--\s*Page\s+\d+\s*-->$/i.test(trimmed) ||
     /^!page\s*\d*$/i.test(trimmed) ||
     /^!Page\s*\d*$/i.test(trimmed) ||
-    /^!\[\]\[image\d+\]$/i.test(trimmed)
+    /^!\[\]\[image\d+\]$/i.test(trimmed) ||
+    /^#{1,6}$/.test(trimmed)
   );
 }
 

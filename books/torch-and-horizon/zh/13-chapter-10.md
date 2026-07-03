@@ -2,6 +2,8 @@
 
 # ——从物理定律到地球系统动力学
 
+![第十章科学示意图](/assets/torch-and-horizon/en/chapter-10-scientific-visual-guide.png)
+
 ### 
 
 ## **10.1 模式并非巧合: 为什么极端天气不是随机事件。** 
