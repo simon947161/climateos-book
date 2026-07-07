@@ -1,17 +1,39 @@
 {
   "zh": {
-    "status": "draft",
-    "chapters": 8,
-    "note": "Manuscript staged locally, awaiting author review"
+    "status": "public-draft",
+    "chapters": 9,
+    "note": "Chinese author-review draft publicly released (NB-06)"
   },
   "en": {
     "status": "pending",
     "chapters": 0,
-    "note": "Translation to be created after Chinese draft is finalized"
+    "note": "Translation pending - Chinese draft shown for reference"
+  },
+  "es": {
+    "status": "pending",
+    "chapters": 0,
+    "note": "Translation pending - Chinese draft shown for reference"
+  },
+  "fr": {
+    "status": "pending",
+    "chapters": 0,
+    "note": "Translation pending - Chinese draft shown for reference"
+  },
+  "de": {
+    "status": "pending",
+    "chapters": 0,
+    "note": "Translation pending - Chinese draft shown for reference"
+  },
+  "ar": {
+    "status": "pending",
+    "chapters": 0,
+    "note": "Translation pending - Chinese draft shown for reference"
   },
   "publication": {
-    "status": "private-draft",
+    "status": "chinese-draft-public",
     "review_status": "author-review-needed",
-    "public_access": false
+    "public_access": true,
+    "primary_language": "zh",
+    "release_stage": "NB-06"
   }
 }

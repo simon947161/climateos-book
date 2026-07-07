@@ -30,8 +30,9 @@ export default function HomePage() {
       </section>
 
       <section className="content-section">
-        <h2>Current publication</h2>
-        <article className="book-card">
+        <h2>Current publications</h2>
+
+        <article className="book-card" style={{ marginBottom: "2rem" }}>
           <p className="eyebrow">Living Book v0.3</p>
           <h3>Torch and Horizon / 远方与火炬</h3>
           <p>
@@ -40,6 +41,17 @@ export default function HomePage() {
             translation pathways.
           </p>
           <Link href="/books/torch-and-horizon">Open book page</Link>
+        </article>
+
+        <article className="book-card">
+          <p className="eyebrow">Chinese Author-Review Draft</p>
+          <h3>《智元纪战略总纲》/ Epoch of Intelligence</h3>
+          <p>
+            A civilizational strategy text on ecological intelligence, green governance, RWA-based
+            value systems, energy sovereignty, and planetary coordination. Chinese author-review
+            draft publicly released. English and other translations pending.
+          </p>
+          <Link href="/books/zhiyuanji/zh">Read Chinese draft</Link>
         </article>
       </section>
     </div>

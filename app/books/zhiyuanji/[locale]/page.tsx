@@ -19,13 +19,17 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: LocalePageProps): Promise<Metadata> {
   const { locale: localeCode } = await params;
   const locale = getLocale(localeCode);
+  const isChinese = locale?.code === "zh";
 
   return {
-    title: locale?.code === "zh"
-      ? "智元纪战略总纲 | 作者审校草稿"
-      : "Epoch of Intelligence | Author Review Draft",
-    description: "全球生态智能体与绿色治理系统构建计划 | Global Eco-Agent & Green Value Operating System",
-    robots: "noindex, nofollow",
+    title: isChinese
+      ? "智元纪战略总纲 | 中文作者审校草稿"
+      : "Epoch of Intelligence | Author Review Draft (Chinese)",
+    description: isChinese
+      ? "全球生态智能体与绿色治理系统构建计划 - 中文作者审校草稿公开发布"
+      : "Global Eco-Agent & Green Value Operating System - Chinese author-review draft shown for reference",
+    // NB-06: Chinese draft is public; non-Chinese routes remain noindex
+    robots: isChinese ? "index, follow" : "noindex, nofollow",
   };
 }
 
@@ -99,15 +103,19 @@ export default async function ZhiyuanjiLocalePage({ params }: LocalePageProps) {
         <div className="zyj-status-grid">
           <div className="zyj-status-item">
             <div className="zyj-status-label">状态 / Status</div>
-            <div className="zyj-status-value">作者审校草稿</div>
+            <div className="zyj-status-value">
+              {isChinese ? "中文草稿公开发布" : "Chinese Draft Public Release"}
+            </div>
           </div>
           <div className="zyj-status-item">
             <div className="zyj-status-label">章节 / Chapters</div>
-            <div className="zyj-status-value">全书导入 (0–8)</div>
+            <div className="zyj-status-value">全书 (0–8)</div>
           </div>
           <div className="zyj-status-item">
-            <div className="zyj-status-label">发布 / Release</div>
-            <div className="zyj-status-value">正式发布待定</div>
+            <div className="zyj-status-label">翻译 / Translations</div>
+            <div className="zyj-status-value">
+              {isChinese ? "其他语言待译" : "Other languages pending"}
+            </div>
           </div>
         </div>
       </section>
@@ -117,12 +125,15 @@ export default async function ZhiyuanjiLocalePage({ params }: LocalePageProps) {
         <div className="zyj-safety-notice">
           <h3>出版安全声明 / Publication Safety Notice</h3>
           <p>
-            本书为作者审校草稿。书稿涉及战略治理、绿色金融系统、RWA、稳定币、个人数据与国际合作等概念。
+            <strong>本次发布为中文作者审校草稿版公开发布。</strong>
+            本版本不是最终审定版，也不是正式多语言译本。
+            书稿涉及战略治理、绿色金融系统、RWA、稳定币、个人数据与国际合作等概念。
             <strong>本书内容不构成金融、法律、投资、政策或公开募资建议。</strong>
           </p>
           <p style={{ marginTop: "0.75rem" }}>
-            This is an author-review draft. The book covers strategic governance, green financial systems,
-            RWA, stablecoins, personal data, and international cooperation.
+            <strong>This is a Chinese author-review draft public release.</strong>
+            This is not a final reviewed edition or a formal multilingual translation.
+            The book covers strategic governance, green financial systems, RWA, stablecoins, personal data, and international cooperation.
             <strong> Nothing in this book constitutes financial, legal, investment, policy, or public-offering advice.</strong>
           </p>
         </div>
@@ -155,9 +166,13 @@ export default async function ZhiyuanjiLocalePage({ params }: LocalePageProps) {
       {/* 阅读指引 */}
       <section className="zyj-reading-guide">
         <p>
-          当前为作者审校草稿阶段，全书内容已导入供审阅。
+          {isChinese
+            ? "当前为中文作者审校草稿公开发布版。全书内容已导入，欢迎阅读与反馈。"
+            : "This is the Chinese author-review draft public release. Content is shown for reference."}
           <br />
-          正式公开发布待作者确认后启动。
+          {isChinese
+            ? "其他语言译本正在准备中。"
+            : "Translations to other languages are pending."}
         </p>
       </section>
 

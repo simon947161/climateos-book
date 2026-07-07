@@ -36,15 +36,21 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: ChapterPageProps): Promise<Metadata> {
   const { locale: localeCode, slug } = await params;
   const locale = getLocale(localeCode);
+  const isChinese = locale?.code === "zh";
   const chapter =
     locale && getZhiyuanjiChapterForLocale(locale.code as LocaleCode, slug)
       ? getZhiyuanjiChapterForLocale(locale.code as LocaleCode, slug)
       : getZhiyuanjiChineseChapter(slug);
 
   return {
-    title: chapter ? `${chapter.title} | 智元纪战略总纲` : "Chapter | Epoch of Intelligence",
-    description: "作者审校草稿 · Author review draft",
-    robots: "noindex, nofollow",
+    title: chapter
+      ? `${chapter.title} | 智元纪战略总纲`
+      : "Chapter | Epoch of Intelligence",
+    description: isChinese
+      ? "中文作者审校草稿 - 不构成金融、法律、投资、政策或公开募资建议"
+      : "Chinese author-review draft shown for reference - Not financial/legal/investment advice",
+    // NB-06: Chinese draft is public; non-Chinese routes remain noindex
+    robots: isChinese ? "index, follow" : "noindex, nofollow",
   };
 }
 
