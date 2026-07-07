@@ -1,0 +1,594 @@
+/* ============================================
+   智元纪战略总纲 - 视觉出版系统
+   Epoch of Intelligence - Visual Publication System
+   Design: 东方留白 + 山河气韵 + 生态智能 + 文明系统
+   ============================================ */
+
+:root {
+  /* 智元纪专属色彩体系 - 纸墨玉 */
+  --zyj-bg: #f6f1e7;          /* 宣纸底色 */
+  --zyj-bg-soft: #fbf8f1;     /* 柔和页面 */
+  --zyj-ink: #1f2a25;         /* 墨绿黑 */
+  --zyj-muted: #66736c;       /* 次要文字 */
+  --zyj-line: #d8cdb8;        /* 纸纹线 */
+  --zyj-jade: #2f6f5e;        /* 玉色绿 */
+  --zyj-deep-jade: #17483d;   /* 深系统绿 */
+  --zyj-gold: #b99555;        /* 文明火金 */
+  --zyj-mist: #e8eee8;        /* 生态薄雾 */
+}
+
+/* ============================================
+   书籍主页 - 书籍入口感
+   Book Homepage - Book Entrance Feel
+   ============================================ */
+
+.zyj-book-home {
+  background: var(--zyj-bg);
+  min-height: 100vh;
+}
+
+/* Hero 区域 */
+.zyj-hero {
+  position: relative;
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 山脉背景母题 */
+.zyj-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background:
+    linear-gradient(180deg, var(--zyj-bg) 0%, transparent 100%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 300' preserveAspectRatio='none'%3E%3Cpath d='M0,250 L200,150 L350,200 L500,120 L650,180 L800,100 L950,160 L1100,130 L1200,200 L1200,300 L0,300 Z' fill='%23d8cdb8' opacity='0.15'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 100% 100%;
+  background-position: top, bottom;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.zyj-hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* 主标题 */
+.zyj-book-title {
+  font-size: clamp(2.5rem, 8vw, 4.5rem);
+  font-weight: 400;
+  color: var(--zyj-ink);
+  margin: 0 0 0.5rem;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+}
+
+.zyj-book-title-en {
+  font-size: clamp(1.25rem, 4vw, 2rem);
+  font-weight: 300;
+  color: var(--zyj-muted);
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.zyj-book-subtitle {
+  font-size: clamp(1rem, 3vw, 1.25rem);
+  color: var(--zyj-muted);
+  max-width: 600px;
+  margin: 0 auto 1rem;
+  line-height: 1.8;
+}
+
+.zyj-book-subtitle-en {
+  font-size: clamp(0.9rem, 2.5vw, 1.1rem);
+  color: var(--zyj-line);
+  font-style: italic;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+/* 状态标签 */
+.zyj-status-badge {
+  display: inline-block;
+  padding: 0.4rem 1rem;
+  border: 1px solid var(--zyj-jade);
+  background: var(--zyj-bg-soft);
+  color: var(--zyj-jade);
+  font-size: 0.85rem;
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.05em;
+}
+
+/* 出版状态区 */
+.zyj-publication-status {
+  background: var(--zyj-bg-soft);
+  border-top: 1px solid var(--zyj-line);
+  border-bottom: 1px solid var(--zyj-line);
+  padding: 2rem 1.5rem;
+  margin: 0;
+}
+
+.zyj-status-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.zyj-status-item {
+  text-align: center;
+}
+
+.zyj-status-label {
+  font-size: 0.75rem;
+  color: var(--zyj-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.zyj-status-value {
+  font-size: 1rem;
+  color: var(--zyj-ink);
+  font-weight: 500;
+}
+
+/* 安全声明 */
+.zyj-safety-notice {
+  background: linear-gradient(135deg, var(--zyj-mist) 0%, var(--zyj-bg-soft) 100%);
+  border: 1px solid var(--zyj-line);
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.zyj-safety-notice h3 {
+  font-size: 0.9rem;
+  color: var(--zyj-deep-jade);
+  margin: 0 0 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+
+.zyj-safety-notice p {
+  font-size: 0.88rem;
+  color: var(--zyj-muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+/* 章节星座 */
+.zyj-chapters {
+  padding: 3rem 1.5rem;
+}
+
+.zyj-chapters-title {
+  font-size: 1rem;
+  color: var(--zyj-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  text-align: center;
+  margin: 0 0 2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 400;
+}
+
+.zyj-chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.zyj-chapter-card {
+  display: block;
+  border: 1px solid var(--zyj-line);
+  background: var(--zyj-bg-soft);
+  padding: 1.5rem;
+  text-decoration: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.zyj-chapter-card:hover {
+  border-color: var(--zyj-jade);
+  box-shadow: 0 2px 8px rgba(47, 111, 94, 0.08);
+}
+
+.zyj-chapter-number {
+  font-size: 0.75rem;
+  color: var(--zyj-jade);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0.5rem;
+}
+
+.zyj-chapter-title {
+  font-size: 1.1rem;
+  color: var(--zyj-ink);
+  margin: 0 0 0.4rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.zyj-chapter-title-en {
+  font-size: 0.85rem;
+  color: var(--zyj-muted);
+  font-style: italic;
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* 阅读指引 */
+.zyj-reading-guide {
+  background: var(--zyj-bg);
+  border-top: 1px solid var(--zyj-line);
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.zyj-reading-guide p {
+  font-size: 0.9rem;
+  color: var(--zyj-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* 系列归属 */
+.zyj-series-note {
+  background: var(--zyj-ink);
+  color: var(--zyj-bg);
+  padding: 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.zyj-series-note a {
+  color: var(--zyj-gold);
+}
+
+/* ============================================
+   章节页面 - 长文阅读
+   Chapter Pages - Long-form Reading
+   ============================================ */
+
+.zyj-chapter-page {
+  background: var(--zyj-bg);
+  min-height: 100vh;
+}
+
+/* 章节头部 */
+.zyj-chapter-header {
+  position: relative;
+  padding: 3rem 1.5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* 章节序号水印 */
+.zyj-chapter-number-watermark {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: clamp(8rem, 25vw, 15rem);
+  color: var(--zyj-line);
+  opacity: 0.2;
+  font-weight: 700;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.zyj-chapter-header-content {
+  position: relative;
+  z-index: 1;
+}
+
+.zyj-chapter-label {
+  font-size: 0.75rem;
+  color: var(--zyj-jade);
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: Arial, Helvetica, sans-serif;
+  margin-bottom: 0.75rem;
+}
+
+.zyj-chapter-title-main {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  color: var(--zyj-ink);
+  margin: 0 0 0.5rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.zyj-chapter-title-en {
+  font-size: clamp(1rem, 3vw, 1.35rem);
+  color: var(--zyj-muted);
+  font-family: "Cormorant Garamond", "Georgia", serif;
+  font-weight: 300;
+  font-style: italic;
+  margin: 0;
+  letter-spacing: 0.05em;
+}
+
+/* 草稿状态横幅 */
+.zyj-draft-banner {
+  background: linear-gradient(90deg, var(--zyj-gold) 0%, var(--zyj-jade) 100%);
+  color: #fff;
+  padding: 0.75rem 1.5rem;
+  text-align: center;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.zyj-draft-banner strong {
+  font-weight: 600;
+}
+
+/* 正文区域 */
+.zyj-chapter-body {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 2rem 1.5rem 3rem;
+}
+
+/* 中文段落 */
+.zyj-chapter-body p {
+  font-size: 1.08rem;
+  line-height: 2;
+  color: var(--zyj-ink);
+  margin: 1.5rem 0;
+}
+
+/* 英文段落样式 - 引用感 */
+.zyj-chapter-body em,
+.zyj-chapter-body p > em:only-child {
+  display: block;
+  font-style: italic;
+  color: var(--zyj-muted);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin: 1.5rem 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid var(--zyj-jade);
+}
+
+/* 标题层级 */
+.zyj-chapter-body h2 {
+  font-size: 1.5rem;
+  color: var(--zyj-ink);
+  margin: 3rem 0 1.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--zyj-line);
+  font-weight: 500;
+}
+
+.zyj-chapter-body h3 {
+  font-size: 1.25rem;
+  color: var(--zyj-ink);
+  margin: 2rem 0 1rem;
+  font-weight: 500;
+}
+
+/* 列表样式 */
+.zyj-chapter-body ul,
+.zyj-chapter-body ol {
+  margin: 1.5rem 0;
+  padding-left: 2rem;
+}
+
+.zyj-chapter-body li {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  margin: 0.5rem 0;
+  color: var(--zyj-ink);
+}
+
+/* 表格样式 */
+.zyj-chapter-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 0.95rem;
+  background: var(--zyj-bg-soft);
+}
+
+.zyj-chapter-body th {
+  background: var(--zyj-jade);
+  color: #fff;
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 500;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.zyj-chapter-body td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--zyj-line);
+}
+
+.zyj-chapter-body tr:last-child td {
+  border-bottom: 0;
+}
+
+/* 移动端表格滚动 */
+@media (max-width: 640px) {
+  .zyj-chapter-body table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+}
+
+/* 分隔线 */
+.zyj-chapter-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--zyj-line) 50%, transparent 100%);
+  margin: 3rem 0;
+  border: 0;
+}
+
+/* 章节导航 */
+.zyj-chapter-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-top: 1px solid var(--zyj-line);
+  padding: 2rem 1.5rem;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.zyj-chapter-nav a {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  text-decoration: none;
+  max-width: 45%;
+}
+
+.zyj-chapter-nav a:last-child {
+  text-align: right;
+  align-items: flex-end;
+}
+
+.zyj-chapter-nav-label {
+  font-size: 0.75rem;
+  color: var(--zyj-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.zyj-chapter-nav-title {
+  font-size: 0.95rem;
+  color: var(--zyj-jade);
+  line-height: 1.4;
+}
+
+.zyj-chapter-nav-back {
+  display: block;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  color: var(--zyj-muted);
+  text-decoration: none;
+  border-top: 1px solid var(--zyj-line);
+}
+
+@media (max-width: 640px) {
+  .zyj-chapter-nav {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .zyj-chapter-nav a {
+    max-width: 100%;
+  }
+
+  .zyj-chapter-nav a:last-child {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
+/* ============================================
+   多语言提示
+   Multilingual Notice
+   ============================================ */
+
+.zyj-translation-notice {
+  background: var(--zyj-mist);
+  border: 1px solid var(--zyj-line);
+  border-radius: 4px;
+  padding: 1.25rem 1.5rem;
+  margin: 1.5rem;
+  text-align: center;
+}
+
+.zyj-translation-notice p {
+  font-size: 0.9rem;
+  color: var(--zyj-muted);
+  margin: 0;
+  line-height: 1.7;
+}
+
+.zyj-translation-notice strong {
+  color: var(--zyj-ink);
+}
+
+/* ============================================
+   响应式调整
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+  .zyj-hero {
+    padding: 3rem 1rem 2rem;
+  }
+
+  .zyj-chapters {
+    padding: 2rem 1rem;
+  }
+
+  .zyj-chapters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .zyj-chapter-body {
+    padding: 1.5rem 1rem 2rem;
+  }
+
+  .zyj-chapter-body p {
+    font-size: 1rem;
+    line-height: 1.9;
+  }
+
+  .zyj-chapter-body h2 {
+    font-size: 1.35rem;
+  }
+
+  .zyj-chapter-body h3 {
+    font-size: 1.15rem;
+  }
+}
+
+/* ============================================
+   打印样式
+   Print Styles
+   ============================================ */
+
+@media print {
+  .zyj-draft-banner,
+  .zyj-chapter-nav,
+  .zyj-status-badge {
+    display: none;
+  }
+
+  .zyj-chapter-body {
+    max-width: 100%;
+    padding: 0;
+  }
+
+  .zyj-chapter-body p {
+    font-size: 11pt;
+    line-height: 1.8;
+  }
+}
