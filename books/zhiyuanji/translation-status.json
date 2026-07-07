@@ -1,0 +1,17 @@
+{
+  "zh": {
+    "status": "draft",
+    "chapters": 8,
+    "note": "Manuscript staged locally, awaiting author review"
+  },
+  "en": {
+    "status": "pending",
+    "chapters": 0,
+    "note": "Translation to be created after Chinese draft is finalized"
+  },
+  "publication": {
+    "status": "private-draft",
+    "review_status": "author-review-needed",
+    "public_access": false
+  }
+}
